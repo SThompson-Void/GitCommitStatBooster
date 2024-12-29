@@ -55,3 +55,4 @@
  - Max optimization
  - Include automation for code reviews etc so activity history is more than just commits
  - Cmake build targets for Windows, Linux, and OS to remove self-compilation requirements
+ - Randomize commit range IF performance is not impacted too badly - however I think most optimizations are going to be negligent since the git commands are what eat up the most runtime anyways

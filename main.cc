@@ -8,17 +8,16 @@ const int kContributionCountPerRuntimeUpperBound = 100;
 
 int main(int argc, const char** argv)
 {
+  std::cout <<"\n-------------------------------------------------------\n";
+  std::cout << "\n\tWelcome to VOID's Git Commit Booster v1.1!\n";
+  std::cout <<"\n-------------------------------------------------------\n";
+  std::cout <<"\n\n\tMaking " << kContributionCountPerRuntimeUpperBound << " commits...\n";
 
-  for(int i = 0; i<kContributionCountPerRuntimeUpperBound; i++)
+  for(int i = 0; i < kContributionCountPerRuntimeUpperBound; i++)
   {
     // Open the file in read/write mode
     const char* fileName = "datadumpfile.txt";
     std::ifstream inputFile(fileName);
-
-    if (!inputFile.is_open()) {
-        std::cerr << "Error: Unable to open the file " << fileName << "\n";
-        return 1;
-    }
 
     // Read the current integer value from the file
     int currentValue = 0;
@@ -34,22 +33,21 @@ int main(int argc, const char** argv)
 
     // Write the incremented value back to the file
     std::ofstream outputFile(fileName);
-    if (!outputFile.is_open()) {
-        std::cerr << "Error: Unable to write to the file " << fileName << "\n";
-        return 1;
-    }
 
     outputFile << currentValue;
     outputFile.close();
 
     std::string commitMessage = "Incremented Data Dump File Count";
     std::system("git add datadumpfile.txt");
-    std::string gitCommitCommand = "git commit -m \"" + commitMessage + "\"";
+    std::string gitCommitCommand = "git commit --quiet -m \"" + commitMessage + "\"";
     std::system(gitCommitCommand.c_str());
   }
 
-    std::system("git push");
-
+    std::system("git push --quiet");
+    std::cout <<"\n\n\t" << kContributionCountPerRuntimeUpperBound << " Pushed to Remote! \n\n\t(enter any char to exit)";
+    std::cout <<"\n-------------------------------------------------------\n";
+    char temp{};
+    std::cin >> temp;
   return 0;
 
 }
