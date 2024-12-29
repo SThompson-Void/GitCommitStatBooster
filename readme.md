@@ -21,6 +21,8 @@
  4. 
 
   `git clone https://github.com/SThompson-Void/GitCommitStatBooster`
+
+  `cd GitCommitStatBooster`
   
   `git remote remove origin`
   
