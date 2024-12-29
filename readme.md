@@ -42,8 +42,7 @@
   
 
  5. Ensure there are no merge conflicts and you can push to github cleanly!
- 6. Set your range of automated git commits on line [9] inside main.cc where designated
- 7. --NOT NEEDED SINCE WE SET REMOTE ORIGIN IN ABOVE SETUP STEPS Set your new github repository URL on line [6] inside main.cc where designated-- 
+ 6. Set your range of automated git commits on line [7] inside main.cc where designated
  8. Compile main.cc, run the program, wait for final push to GitHub repo
  9. Check GitHub repo to see that contributions properly updated on your page
  10. Star the GitHub Commit History Booster Repo! (plz bro)
