@@ -21,14 +21,23 @@
  4. 
 
   `git clone https://github.com/SThompson-Void/GitCommitStatBooster`
+  
   `git remote remove origin`
+  
   `git init`
+  
   `git remote add origin https://github.com/username/new-repo.git`
+  
   -Add main.cc and readme.md to your gitignore file!
+  
   `git add .`
+  
   `git commit -m "Setup commit"`
+  
   `git branch -M main`
+  
   `git push -u origin main`
+  
 
  5. Ensure there are no merge conflicts and you can push to github cleanly!
  6. Set your range of automated git commits on line [9] inside main.cc where designated
