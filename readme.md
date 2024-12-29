@@ -13,6 +13,8 @@
  - Make sure to throw in some real work here and there to top it all off
  - Bonus points to do it in a private repo and have private repo commits show on your board so it looks like you're just grinding away at some special project
 
+## Reqs:
+ - C++ compiler installed on your system
 # Procedure:
  0. Create a new repository on GitHub Website preferably a private one!
  1. Go to the LOCAL Directory for where you will be creating your new repository
@@ -52,3 +54,4 @@
  ## Future Plans?
  - Max optimization
  - Include automation for code reviews etc so activity history is more than just commits
+ - Cmake build targets for Windows, Linux, and OS to remove self-compilation requirements
