@@ -2,13 +2,15 @@
 #include <fstream>
 #include <cstdlib>
 
-  // replace below URL with your own!
-  const char* kGitHubRepositoryUrl = "temp";
   /* replace below value with the max amount of times you want
      to make commits per run of the program */
-  const int kContributionCountPerRuntimeUpperBound = 100;
+const int kContributionCountPerRuntimeUpperBound = 100;
+
 int main(int argc, const char** argv)
 {
+
+  for(int i = 0; i<kContributionCountPerRuntimeUpperBound; i++)
+  {
     // Open the file in read/write mode
     const char* fileName = "datadumpfile.txt";
     std::ifstream inputFile(fileName);
@@ -23,6 +25,10 @@ int main(int argc, const char** argv)
     inputFile >> currentValue;
     inputFile.close();
 
+    //current security bounds
+    if (currentValue >= 10956){
+      currentValue = 0;
+    }
     // Increment the value
     currentValue++;
 
@@ -36,8 +42,14 @@ int main(int argc, const char** argv)
     outputFile << currentValue;
     outputFile.close();
 
-    // Execute a Windows CLI command (e.g., displaying the updated value)
-    std::string command = "echo Current Value: " + std::to_string(currentValue);
-    system(command.c_str());
-    return 0;
+    std::string commitMessage = "Incremented Data Dump File Count";
+    std::system("git add datadumpfile.txt");
+    std::string gitCommitCommand = "git commit -m \"" + commitMessage + "\"";
+    std::system(gitCommitCommand.c_str());
+  }
+
+    std::system("git push");
+
+  return 0;
+
 }
