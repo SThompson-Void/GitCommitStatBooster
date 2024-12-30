@@ -1,5 +1,9 @@
 # GitHub Commit History Booster
 
+![sthompsongitcontribcount](https://github.com/user-attachments/assets/f1f7adc0-b88e-424e-99f7-897b7ae0dc50)
+![github greenboard](https://github.com/user-attachments/assets/b1ec6aac-a83c-4005-8583-42c979aae2df)
+
+
 ## Problem:
  - You know what you want: when you're browsing a LinkedIn or any other platform and you stumble across somebody's GitHub page and to your surprise you see a wall of green looking like my beginner's luck in stock trading the week before it all crashed
  - You want to be THAT guy (without actually being that guy)
