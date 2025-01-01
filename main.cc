@@ -15,10 +15,20 @@ void GitCommitListExec(int random_number_for_commits);
 
 int main(int argc, const char** argv)
 {
-  int random_number_for_commits{GenerateRandomNumber()};
-  PrintIntroText(random_number_for_commits);
-  GitCommitListExec(random_number_for_commits);
-  PrintOutroText(random_number_for_commits);
+  char main_while_loop_selection{'Y'};
+  while(main_while_loop_selection == 'y' || main_while_loop_selection == 'Y')
+  {
+    main_while_loop_selection = ' ';
+
+    int random_number_for_commits{GenerateRandomNumber()};
+    PrintIntroText(random_number_for_commits);
+    GitCommitListExec(random_number_for_commits);
+    PrintOutroText(random_number_for_commits);
+
+    std::cout <<"Would you like to run again? (Y/N): ";
+    std::cin >> main_while_loop_selection;
+
+  }
   return 0;
 }
 
@@ -44,8 +54,6 @@ void PrintOutroText(int random_number_for_commits)
     //std::system("git push --quiet");
     std::cout <<"\n\n\t" << random_number_for_commits << " commits Pushed to Remote! \n\n\t(enter any char to exit)";
     std::cout <<"\n-------------------------------------------------------\n";
-    char temp{};
-    std::cin >> temp;
 }
 
 void GitCommitListExec(int random_number_for_commits)
@@ -72,18 +80,18 @@ void GitCommitListExec(int random_number_for_commits)
 
     outputFile << currentValue;
     outputFile.close();
-      //temp test git methods:
+
+    //temp test git methods:
+    /*
     std::cout <<
     "\nCommit message: Incremented Data Dump File Count" <<
     "\ngit add datadumpfile.txt" <<
-    "\ngit commit --quiet -m commit message!" 
-    ;
-    /*
+    "\ngit commit --quiet -m commit message!";
+  */
     std::string commitMessage = "Incremented Data Dump File Count";
     std::system("git add datadumpfile.txt");
     std::string gitCommitCommand = "git commit --quiet -m \"" + commitMessage + "\"";
     std::system(gitCommitCommand.c_str());
-    */
   }
 
 }
