@@ -7,25 +7,54 @@
 const int kContributionCountPerRuntimeUpperBound = 250;
 const int kContributionCountPerRuntimeLowerBound = 50;
 
+int GenerateRandomNumber();
+void PrintIntroText(int random_number_for_commits);
+void PrintOutroText(int random_number_for_commits);
+void GitCommitListExec(int random_number_for_commits);
+
+
 int main(int argc, const char** argv)
 {
-  //marsenne twister rand prng using kContributionCountPerRuntimeUpperBound as lim:
+  int random_number_for_commits{GenerateRandomNumber()};
+  PrintIntroText(random_number_for_commits);
+  GitCommitListExec(random_number_for_commits);
+  PrintOutroText(random_number_for_commits);
+  return 0;
+}
+
+int GenerateRandomNumber()
+{
   std::mt19937 generator(std::random_device{}());
   std::uniform_int_distribution<int> distribution(kContributionCountPerRuntimeLowerBound, kContributionCountPerRuntimeUpperBound);
-  int randSelectedLimit = distribution(generator);
+  int random_number_for_commits = distribution(generator);
+  return random_number_for_commits;
+}
 
-  //cli app intro formatting
+void PrintIntroText(int random_number_for_commits)
+{
   std::cout <<"\n-------------------------------------------------------\n";
   std::cout << "\n\tWelcome to VOID's Git Commit Booster v1.1!\n";
   std::cout <<"\n-------------------------------------------------------\n";
-  std::cout <<"\n\n\tMaking " << randSelectedLimit << " commits...\n";
+  std::cout <<"\n\nMaking " << random_number_for_commits << " commits...\n";
+}
 
-  for(int i = 0; i < randSelectedLimit; i++)
+void PrintOutroText(int random_number_for_commits)
+{
+    std::cout <<"\n\n\tFinally pushing commits to git!";
+    //std::system("git push --quiet");
+    std::cout <<"\n\n\t" << random_number_for_commits << " commits Pushed to Remote! \n\n\t(enter any char to exit)";
+    std::cout <<"\n-------------------------------------------------------\n";
+    char temp{};
+    std::cin >> temp;
+}
+
+void GitCommitListExec(int random_number_for_commits)
+{
+  for(int i = 0; i < random_number_for_commits; i++)
   {
     // Open the file in read/write mode
     const char* fileName = "datadumpfile.txt";
     std::ifstream inputFile(fileName);
-
     // Read the current integer value from the file
     int currentValue = 0;
     inputFile >> currentValue;
@@ -43,17 +72,18 @@ int main(int argc, const char** argv)
 
     outputFile << currentValue;
     outputFile.close();
-
+      //temp test git methods:
+    std::cout <<
+    "\nCommit message: Incremented Data Dump File Count" <<
+    "\ngit add datadumpfile.txt" <<
+    "\ngit commit --quiet -m commit message!" 
+    ;
+    /*
     std::string commitMessage = "Incremented Data Dump File Count";
     std::system("git add datadumpfile.txt");
     std::string gitCommitCommand = "git commit --quiet -m \"" + commitMessage + "\"";
     std::system(gitCommitCommand.c_str());
+    */
   }
 
-    std::system("git push --quiet");
-    std::cout <<"\n\n\t" << randSelectedLimit << " Pushed to Remote! \n\n\t(enter any char to exit)";
-    std::cout <<"\n-------------------------------------------------------\n";
-    char temp{};
-    std::cin >> temp;
-  return 0;
 }
