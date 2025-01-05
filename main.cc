@@ -4,8 +4,8 @@
 #include <random>
 
 // replace below value with the max amount of times you want to make commits per run of the program
-const int kContributionCountPerRuntimeUpperBound = 200;
-const int kContributionCountPerRuntimeLowerBound = 25;
+const int kContributionCountPerRuntimeUpperBound = 500;
+const int kContributionCountPerRuntimeLowerBound = 200;
 
 int GenerateRandomNumber();
 void PrintIntroText(int random_number_for_commits);
