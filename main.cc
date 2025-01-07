@@ -51,7 +51,7 @@ void PrintIntroText(int random_number_for_commits)
 void PrintOutroText(int random_number_for_commits)
 {
     std::cout <<"\n\n\tFinally pushing commits to git!";
-    //std::system("git push --quiet");
+    std::system("git push --quiet");
     std::cout <<"\n\n\t" << random_number_for_commits << " commits Pushed to Remote! \n\n\t(enter any char to exit)";
     std::cout <<"\n-------------------------------------------------------\n";
 }
